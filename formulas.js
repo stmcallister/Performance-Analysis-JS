@@ -1,10 +1,3 @@
-const {
-    // map,
-    // reduce,
-    // filter,
-    // find,
-    random
-} = require('lodash');
 let i = 0;
 
 exports.checkPerformance = (posts) => {
@@ -43,12 +36,6 @@ function reducePerformance(posts) {
     });
     avg = avg/length;
     console.timeEnd('for each');
-
-    avg = 0;
-    // console.time('lodash reduce');
-    // avg = reduce(posts, (acc, p) => acc+= (+p.downvotes+ +p.upvotes+ +p.commentCount)/3,0);
-    // avg = avg/length;
-    // console.timeEnd('lodash reduce');
 }
 
 // modified all upvotes, add commentCounts to upvotes and divde by random number -> map
@@ -92,18 +79,6 @@ function mapPerformance(posts) {
         });
     });
     console.timeEnd('for each');
-    
-    // newData=[];
-    // console.time('lodash map');
-    // newData = map(posts, p => {
-    //     return {
-    //         id: p.id,
-    //         upvotes: (+p.upvotes + +p.commentCount)/divider,
-    //         downvotes: p.downvotes,
-    //         commentCount: p.commentCount
-    //     };
-    // })
-    // console.timeEnd('lodash map');
 }
 
 
@@ -136,46 +111,3 @@ function filterPerformance(posts) {
         }
     });
     console.timeEnd('for each');
-
-    // newData = [];
-    // console.time('lodash filter');
-    // newData = filter(posts, p => (+p.upvotes*0.2 + +p.downvotes*0.3 +p.commentCount*0.1)/3 > fitlerValue);
-    // console.timeEnd('lodash filter');
-}
-
-
-// find the last post 
-// function findPerformance(posts) {
-//     console.log('**************** Find performace check ***************')
-//     const randomFind = Math.random(0, posts.length-1);
-//     const length = posts.length;
-
-//     let obj = {};
-//     console.time('js find');
-//     obj = posts.find(p => p.id == randomFind);
-//     console.timeEnd('js find');
-
-//     obj = {};
-//     console.time('for');
-//     for(i=0; i<length; i++) {
-//         if(posts[i].id == randomFind) {
-//             obj = posts[i];
-//         }
-//     }
-//     console.timeEnd('for');
-
-//     obj = {};
-//     console.time('for each');
-//     posts.forEach(element => {
-//         if(element.id == randomFind) {
-//             obj = element
-//         }
-//     });
-//     console.timeEnd('for each');
-    
-//     // obj = {};
-//     // console.time('lodash find');
-//     // obj = find(posts, p => p.id === randomFind)
-//     // console.timeEnd('lodash find');
-    
-// }
