@@ -111,3 +111,4 @@ function filterPerformance(posts) {
         }
     });
     console.timeEnd('for each');
+}
